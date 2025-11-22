@@ -64,7 +64,7 @@ exports.getAdminGrievances = async (req, res) => {
     }
 };
 
-exports .updateStatus = async (req, res) => {
+exports.updateStatus = async (req, res) => {
     const { status } = req.body;
     const grievance = await Grievance.findById(req.params.id);
 

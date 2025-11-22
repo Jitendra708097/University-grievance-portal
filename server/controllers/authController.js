@@ -10,15 +10,15 @@ const sendTokenResponse = (user, statusCode, res) => {
     });
 
     // Cookie Options
-    const options = {
-        expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
-        httpOnly: true, // Prevents JS from reading the cookie (XSS protection)
-        secure: process.env.NODE_ENV === 'production', // HTTPS only in production
-        sameSite: 'strict' // CSRF protection
-    };
+    // const options = {
+    //     expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
+    //     httpOnly: true, // Prevents JS from reading the cookie (XSS protection)
+    //     secure: process.env.NODE_ENV === 'production', // HTTPS only in production
+    //     sameSite: 'strict' // CSRF protection
+    // };
 
     res.status(statusCode)
-        .cookie('token', token, options) // SET COOKIE HERE
+        .cookie('token', token) // SET COOKIE HERE
         .json({
             success: true,
             _id: user._id,
