@@ -41,19 +41,19 @@ export default function Login() {
         <div className="p-8">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">University Email</label>
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Email<span className='text-red-500 font-bold'> *</span></label>
               <div className="relative">
                 <input 
                   {...register("email", { required: "Email is required" })}
                   className="w-full px-4 py-2.5 pl-4 rounded-lg border border-slate-300 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-slate-50 focus:bg-white"
-                  placeholder="student@university.edu"
+                  placeholder="student email address"
                 />
               </div>
               {errors.email && <p className="text-red-500 text-xs mt-1 font-medium">{errors.email.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Password</label>
+              <label className="block text-sm font-semibold text-slate-700 mb-1.5">Password<span className='text-red-500 text-md font-bold'> *</span></label>
               <div className="relative">
                 <input 
                   type="password"

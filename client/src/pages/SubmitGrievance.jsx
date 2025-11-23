@@ -64,9 +64,9 @@ export default function SubmitGrievance() {
           {/* 1. Title & Dept */}
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <label className={labelClass}>Subject Title</label>
+              <label className={labelClass}>Subject Title<span className='text-red-500 text-md font-bold'> *</span></label>
               <input 
-                {...register("title", { required: "Subject is required", minLength: { value: 6, message: "Min 3 characters" }, maxLength: { value: 300, message: "Max 150 characters"} })} 
+                {...register("title", { required: "Subject is required", minLength: { value: 6, message: "Min 4 characters" }, maxLength: { value: 300, message: "Max 150 characters"} })} 
                 className={inputClass} 
                 placeholder="e.g. WiFi Connectivity Issue" 
               />
@@ -74,7 +74,7 @@ export default function SubmitGrievance() {
             </div>
 
             <div>
-              <label className={labelClass}>Target Department</label>
+              <label className={labelClass}>Department<span className='text-red-500 text-md font-bold'> *</span></label>
               <div className="relative">
                 <select {...register("departmentTarget", { required: "Department is required" })} className={inputClass}>
                   <option value="">Select Department...</option>
@@ -82,7 +82,7 @@ export default function SubmitGrievance() {
                   <option value="Electrical">Electrical</option>
                   <option value="Hostel">Hostel Administration</option>
                   <option value="ExamCell">Examination Cell</option>
-                  <option value="ViceChancellor">Vice Chancellor (Escalation)</option>
+                  <option value="ViceChancellor">Vice Chancellor</option>
                 </select>
               </div>
               {errors.departmentTarget && <p className={errorClass}>{errors.departmentTarget.message}</p>}
@@ -91,7 +91,7 @@ export default function SubmitGrievance() {
 
           {/* 2. Description */}
           <div>
-            <label className={labelClass}>Detailed Description</label>
+            <label className={labelClass}>Detailed Description<span className='text-red-500 text-md font-bold'> *</span></label>
             <textarea 
               {...register("description", { required: "Description is required",minLength: { value: 6, message: "Min 5 characters" }, maxLength: { value: 500, message: "Max 300 characters"} })} 
               rows="6" 
@@ -138,7 +138,7 @@ export default function SubmitGrievance() {
           <div className="pt-2">
             <button 
               disabled={isSubmitting} 
-              className="w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-lg font-semibold transition-all shadow-lg shadow-slate-900/10 flex justify-center items-center gap-2 active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
+              className="cursor-pointer w-full bg-slate-900 hover:bg-slate-800 text-white py-3 rounded-lg font-semibold transition-all shadow-lg shadow-slate-900/10 flex justify-center items-center gap-2 active:scale-[0.99] disabled:opacity-70 disabled:cursor-not-allowed"
             >
                {isSubmitting ? 'Submitting Report...' : <><Send size={18} /> Submit Grievance</>}
             </button>

@@ -63,9 +63,10 @@ export default function Register() {
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                <div>
-                 <label className={labelClass}>Full Name</label>
+                 <label className={labelClass}>Full Name<span className='text-red-500 text-md'>*</span></label>
                  <input 
                     {...register("name", { required: "Name is required" })} 
                     className={inputClass} 
@@ -75,17 +76,16 @@ export default function Register() {
                </div>
 
                <div>
-                 <label className={labelClass}>University Email</label>
+                 <label className={labelClass}>Email<span className='text-red-500 text-md font-bold'> *</span></label>
                  <input 
                     {...register("email", { 
                         required: "Email is required",
                         pattern: {
-                            value: /^[A-Z0-9._%+-]+@university\.edu$/i,
-                            message: "Must use @university.edu"
+                            message: "Please enter a valid email address"
                         }
                     })} 
                     className={inputClass} 
-                    placeholder="id@university.edu"
+                    placeholder="Enter your email"
                  />
                  {errors.email && <span className="text-red-500 text-xs mt-1">{errors.email.message}</span>}
                </div>
@@ -93,7 +93,7 @@ export default function Register() {
 
              {/* Password  */}
             <div>
-                <label className={labelClass}>Password</label>
+                <label className={labelClass}>Password<span className='text-red-500 text-md font-bold'> *</span></label>
                 <input 
                     type="password"
                     {...register("password", { required: "Required", minLength: { value: 6, message: "Min 6 characters" }})} 

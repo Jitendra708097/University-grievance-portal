@@ -86,7 +86,7 @@ export default function StudentDashboard() {
           <button
             key={status}
             onClick={() => setFilter(status)}
-            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
+            className={`cursor-pointer px-4 py-1.5 rounded-full text-xs font-bold transition-all whitespace-nowrap ${
               filter === status 
                 ? 'bg-slate-800 text-white shadow-md' 
                 : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
